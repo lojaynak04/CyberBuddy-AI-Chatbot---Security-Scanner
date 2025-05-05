@@ -23,5 +23,6 @@ api_key.txt: Your OpenAI API key (excluded from public commits)
 assets/: Icons and UI images
 
 README.md: Project documentation
+security_report.txt and chat_history.txt are generated automatically when the application runs and are excluded from the repository.
 
 🔒 Note: For privacy and safety, no user data is stored or transmitted.
