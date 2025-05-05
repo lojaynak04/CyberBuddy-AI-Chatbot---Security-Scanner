@@ -1,0 +1,14 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+
+# Ignore OpenAI key
+api_key.txt
+
+# Ignore environment/config files (optional)
+.env
+*.log
+
+# Ignore system files (optional)
+.DS_Store
+Thumbs.db
