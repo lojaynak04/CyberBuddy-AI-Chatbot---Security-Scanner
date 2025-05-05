@@ -6,9 +6,9 @@ import subprocess
 import threading
 from datetime import datetime
 
-# === Load OpenAI Key from file ===
-with open("api_key.txt", "r") as key_file:
-    openai.api_key = key_file.read().strip()
+# === OpenAI Key ===
+with open("api_key.txt", "r") as f:
+    openai.api_key = f.read().strip()
 
 # === File Paths ===
 CHAT_LOG    = "chat_history.txt"
@@ -23,10 +23,10 @@ class CyberBuddyApp(ctk.CTk):
         self.last_scan_output = None
 
         # === Load Assets ===
-        self.title_img = ctk.CTkImage(light_image=Image.open("C:/Users/lulu/Desktop/GraduationProject25/CyberBuddy_title.png"), size=(700, 230))
-        self.bot_icon = ctk.CTkImage(ImageOps.fit(Image.open("C:/Users/lulu/Desktop/GraduationProject25/bot_icon.png"), (90, 90)), size=(90, 90))
-        self.user_icon = ctk.CTkImage(ImageOps.fit(Image.open("C:/Users/lulu/Desktop/GraduationProject25/user_icon.png"), (90, 90)), size=(90, 90))
-        self.send_icon = ctk.CTkImage(Image.open("C:/Users/lulu/Desktop/GraduationProject25/send_icon.png").resize((60, 60)))
+        self.title_img = ctk.CTkImage(light_image=Image.open("assets/CyberBuddy_title.png"), size=(700, 230))
+        self.bot_icon = ctk.CTkImage(ImageOps.fit(Image.open("assets/bot_icon.png"), (90, 90)), size=(90, 90))
+        self.user_icon = ctk.CTkImage(ImageOps.fit(Image.open("assets/user_icon.png"), (90, 90)), size=(90, 90))
+        self.send_icon = ctk.CTkImage(Image.open("assets/send_icon.png").resize((60, 60)))
 
         self.configure(fg_color="#1b1d38")
 
@@ -62,7 +62,7 @@ class CyberBuddyApp(ctk.CTk):
 
     def scan(self):
         def run_command(cmd):
-            p = subprocess.run(['powershell','-Command',cmd], capture_output=True, text=True, encoding='utf-8', errors='ignore')
+            p = subprocess.run(['powershell', '-Command', cmd], capture_output=True, text=True, encoding='utf-8', errors='ignore')
             return p.stdout.strip()
 
         out = []
@@ -114,7 +114,6 @@ class CyberBuddyApp(ctk.CTk):
 
     def add_message(self, msg, sender):
         wrapper = ctk.CTkFrame(self.scroll_frame, fg_color="#0a0a1e")
-
         bubble = ctk.CTkLabel(
             wrapper,
             text=msg,
@@ -127,7 +126,6 @@ class CyberBuddyApp(ctk.CTk):
             padx=15,
             pady=10
         )
-
         icon = self.bot_icon if sender == "bot" else self.user_icon
         icon_label = ctk.CTkLabel(wrapper, image=icon, text="")
 
