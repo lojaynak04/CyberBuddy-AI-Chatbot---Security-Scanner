@@ -13,3 +13,15 @@ Features:
 - AI chatbot (powered by OpenAI) explains scan results and answers questions
 
 - Built with Python, CustomTkinter, and OpenAI's API
+
+Structure:
+
+CyberBuddyApp.py: Main application code
+
+api_key.txt: Your OpenAI API key (excluded from public commits)
+
+assets/: Icons and UI images
+
+README.md: Project documentation
+
+🔒 Note: For privacy and safety, no user data is stored or transmitted.
